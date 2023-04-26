@@ -3,7 +3,7 @@
 {% block content %}
 
 {% for book in books %}
-<p><a href="/books/<id>">{{book.title}}</a>
+<p><a href="/books/<id>">{{book.title}}</a> is a book by 
 <span>{{book.author.name}}</span></p>
 <input type="hidden" value="{{book.id}}"/>
 <form action="/books/{{book.id}}/delete" method="post">

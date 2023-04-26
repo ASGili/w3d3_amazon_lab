@@ -16,3 +16,12 @@ def books_():
 def books_delete(id):
     book_repo.delete(id)
     return redirect('/books')
+
+@tasks_blueprint.route('/books', methods=['POST'])
+def add_book():
+    title = request.form['title']
+    author_id = request.form['author_id']
+    author= author_repo.select(author_id)
+    book = Book(title,author)
+    book_repo.save(book)
+    return redirect("/books")
